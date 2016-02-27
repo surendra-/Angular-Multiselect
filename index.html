@@ -1,0 +1,111 @@
+<html lang="en" >
+<head>
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.css">
+  <style>
+      .box
+      {
+          border: 1px solid #999;
+          padding: 10px;
+          margin-top: 10px; 
+      }
+  </style>
+</head>
+<body ng-app="demoApp" layout="column">
+    <md-toolbar layout="row">
+      <h1>Multiselect Component</h1>
+    </md-toolbar>
+    <div flex layout="row">
+      <md-sidenav md-is-locked-open="$mdMedia('gt-md')" class="md-whiteframe-z2">
+
+      </md-sidenav>
+      <md-content flex id="content" ng-controller="mainController">
+      
+      <div class="box" layout-margin >
+     <p>PlaceHolder Option</p>
+        <md-chips ng-model="selectedClothes1" md-autocomplete-snap="" md-require-match="false"  md-transform-chip="newCloth($chip)"readonly="false">
+           <md-autocomplete md-selected-item="selectedItems" md-search-text="searchText" 
+           md-items="item in querySearch(searchText) | limitTo:3 " md-item-text="item.name"  placeholder="Add a cloth" md-min-length="0" >
+              <span md-highlight-text="searchText">{{item.name}}</span>
+           </md-autocomplete>
+        <md-chip-template>
+          <span>
+            <strong>{{$chip.name}}</strong>
+          </span>
+        </md-chip-template>
+      </md-chips>
+    </div>
+
+    <div class="box" layout-margin >
+      <p>Restrict new elements that are not in the select</p>
+        <md-chips ng-model="selectedClothes2" md-autocomplete-snap="" md-require-match="true" readonly="false">
+           <md-autocomplete md-selected-item="selectedItems" md-search-text="searchText" 
+           md-items="item in querySearch(searchText) | limitTo:3 " md-item-text="item.name"  md-min-length="0" >
+              <span md-highlight-text="searchText">{{item.name}}</span>
+           </md-autocomplete>
+        <md-chip-template>
+          <span>
+            <strong>{{$chip.name}}</strong>
+          </span>
+        </md-chip-template>
+      </md-chips>
+    </div>  
+
+    <div class="box" layout-margin>
+      <p>Autofocus input field</p>
+        <md-chips ng-model="selectedClothes3" md-autocomplete-snap="" md-require-match="true" readonly="false">
+           <md-autocomplete md-selected-item="selectedItems" md-search-text="searchText" md-autofocus
+           md-items="item in querySearch(searchText) | limitTo:3 " md-item-text="item.name"  md-min-length="0" >
+              <span md-highlight-text="searchText">{{item.name}}</span>
+           </md-autocomplete>
+        <md-chip-template>
+          <span>
+            <strong>{{$chip.name}}</strong>
+          </span>
+        </md-chip-template>
+      </md-chips>
+     </div>
+
+     <div class="box" layout-margin>
+      <p>Disabled list <md-button class="md-raised" ng-click="a=!a" ng-init="a=true">change</md-button></p>
+        <md-chips ng-model="selectedClothes4" md-autocomplete-snap="" md-require-match="true" readonly="a">
+           <md-autocomplete md-selected-item="selectedItems" md-search-text="searchText" 
+           md-items="item in querySearch(searchText) | limitTo:3 " md-item-text="item.name"  md-min-length="0" >
+              <span md-highlight-text="searchText">{{item.name}}</span>
+           </md-autocomplete>
+        <md-chip-template>
+          <span>
+            <strong>{{$chip.name}}</strong>
+          </span>
+        </md-chip-template>
+      </md-chips>
+     </div>
+
+     <div class="box" layout-margin>
+      <p>Display dropdown list on focus</p>
+        <md-chips ng-model="selectedClothes5" md-autocomplete-snap="" md-require-match="true" readonly="false">
+           <md-autocomplete md-selected-item="selectedItems" md-search-text="searchText" 
+           md-items="item in querySearch1(searchText) | limitTo:5 " md-item-text="item.name"  md-min-length="0" >
+              <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.name}}</span>
+           </md-autocomplete>
+        <md-chip-template>
+          <span>
+            <strong>{{$chip.name}}</strong>
+          </span>
+        </md-chip-template>
+      </md-chips>
+     </div>
+
+     </md-content>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-messages.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.js"></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.js'></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.5/angular-material.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
